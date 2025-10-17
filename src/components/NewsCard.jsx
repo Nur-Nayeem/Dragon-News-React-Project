@@ -40,9 +40,9 @@ const NewsCard = ({ news }) => {
       </figure>
 
       {/* --- Details --- */}
-      <div className="px-4 text-sm text-gray-600 mb-2">
-        {details.slice(0, 180)}...
-        <span className="text-primary font-medium cursor-pointer ml-1 hover:underline">
+      <div className="px-4 text-md text-gray-600 mb-2">
+        {details.length >= 180 ? details.slice(0, 180) : details}...
+        <span className="text-orange-400 font-medium cursor-pointer ml-1 hover:underline">
           Read More
         </span>
       </div>
