@@ -4,7 +4,7 @@ import Categories from "../Categories";
 const LeftAside = () => {
   return (
     <div>
-      <h2>All Categories </h2>
+      <h2 className="text-xl font-semibold text-primary">All Categories </h2>
       <Suspense
         fallback={<span className="loading loading-dots loading-xl"></span>}
       >
