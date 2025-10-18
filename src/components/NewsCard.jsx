@@ -1,8 +1,11 @@
 import React from "react";
 import { FaRegBookmark, FaShareAlt, FaStar, FaRegEye } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 const NewsCard = ({ news }) => {
-  const { title, author, rating, total_view, thumbnail_url, details } = news;
+  const navigate = useNavigate();
+  const { id, title, author, rating, total_view, thumbnail_url, details } =
+    news;
 
   return (
     <div className="card bg-base-100 shadow-px border border-gray-200 rounded-sm overflow-hidden">
@@ -42,7 +45,10 @@ const NewsCard = ({ news }) => {
       {/* --- Details --- */}
       <div className="px-4 text-md text-gray-600 mb-2">
         {details.length >= 180 ? details.slice(0, 180) : details}...
-        <span className="text-orange-400 font-medium cursor-pointer ml-1 hover:underline">
+        <span
+          onClick={() => navigate(`/news/${id}`)}
+          className="text-orange-400 font-medium cursor-pointer ml-1 hover:underline"
+        >
           Read More
         </span>
       </div>

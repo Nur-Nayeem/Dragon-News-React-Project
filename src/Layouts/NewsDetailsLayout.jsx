@@ -1,0 +1,39 @@
+import React from "react";
+import Header from "../components/Header";
+import MyContainer from "../components/MyContainer";
+import LatestNewsheader from "../components/LatestNewsheader";
+import Navbar from "../components/Navbar";
+import RigheAside from "../components/homeLayout/RigheAside";
+import { Outlet } from "react-router";
+
+const NewsDetailsLayout = () => {
+  return (
+    <div>
+      <header>
+        <Header />
+        <section>
+          <MyContainer className="my-3">
+            <LatestNewsheader />
+          </MyContainer>
+        </section>
+        <nav>
+          <MyContainer className="my-3">
+            <Navbar />
+          </MyContainer>
+        </nav>
+      </header>
+      <main>
+        <MyContainer className="my-3 grid grid-cols-12 gap-6">
+          <section className="main col-span-9">
+            <Outlet />
+          </section>
+          <aside className="col-span-3">
+            <RigheAside />
+          </aside>
+        </MyContainer>
+      </main>
+    </div>
+  );
+};
+
+export default NewsDetailsLayout;
