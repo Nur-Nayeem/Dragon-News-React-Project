@@ -35,19 +35,16 @@ const Navbar = () => {
         />
         <button
           onClick={handleAuth}
-          className="hidden md:block text-base-100 btn btn-primary px-10"
+          className="text-base-100 btn btn-primary px-10"
         >
-          {user ? "Log Out" : "Login"}
-        </button>
-        <button
-          onClick={handleAuth}
-          className="block md:hidden text-base-100 rounded-full w-max"
-        >
-          {user ? (
-            <PiSignOut />
-          ) : (
-            <img className="w-10 h-10 rounded-full" src={userIcon} alt="" />
-          )}
+          <span className="hidden md:block ">{user ? "Log Out" : "Login"}</span>
+          <span className="block md:hidden ">
+            {user ? (
+              <PiSignOut />
+            ) : (
+              <img className="w-10 h-10 rounded-full" src={userIcon} alt="" />
+            )}
+          </span>
         </button>
       </div>
     </div>
