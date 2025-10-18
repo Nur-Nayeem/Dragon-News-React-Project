@@ -7,6 +7,7 @@ import SignIn from "../components/AuthLayoutComponents/SignIn";
 import SignUp from "../components/AuthLayoutComponents/SignUp";
 import NewsDetailsLayout from "../Layouts/NewsDetailsLayout";
 import NewsDetailsPage from "../pages/NewsDetailsPage";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -44,7 +45,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: ":id",
-        element: <NewsDetailsPage />,
+        element: (
+          <PrivateRoute>
+            <NewsDetailsPage />
+          </PrivateRoute>
+        ),
         loader: () => fetch("/news.json"),
       },
     ],
