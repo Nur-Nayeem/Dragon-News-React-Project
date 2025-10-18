@@ -57,13 +57,16 @@ const SignUp = () => {
   };
   return (
     <MyContainer className={"flex justify-center py-4"}>
-      <div className="bg-base-100 px-16 py-10 rounded-sm">
+      <div className="bg-base-100 p-4 sm:p-8 md:p-16 py-10 rounded-sm">
         <h2 className="text-center text-2xl font-semibold">
           Register your account
         </h2>
         <hr className="my-4 text-base-300" />
         <div>
-          <form onSubmit={hanldeSubmit} className="flex flex-col gap-6 md:w-xl">
+          <form
+            onSubmit={hanldeSubmit}
+            className="flex flex-col gap-6 w-2xs sm:w-sm md:w-xl"
+          >
             <div className="flex flex-col gap-1.5">
               <label>Your Name</label>
               <input

@@ -4,7 +4,7 @@ const categoryPromies = fetch("/categories.json").then((res) => res.json());
 const Categories = () => {
   const categories = use(categoryPromies);
   return (
-    <div className="grid grid-cols-1 mt-5 gap-3">
+    <div className="flex flex-wrap lg:grid lg:grid-cols-1 mt-5 gap-3">
       {categories.map((category) => (
         <NavLink
           to={`/category/${category.id}`}

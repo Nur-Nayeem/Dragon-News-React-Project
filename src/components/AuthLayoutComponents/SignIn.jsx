@@ -42,13 +42,16 @@ const SignIn = () => {
   };
   return (
     <MyContainer className={"flex justify-center py-16"}>
-      <div className="bg-base-100 p-16 rounded-sm">
+      <div className="bg-base-100 p-4 sm:p-8 md:p-16 rounded-sm">
         <h2 className="text-center text-2xl font-semibold">
           Login your account
         </h2>
         <hr className="my-10 text-base-300" />
         <div>
-          <form onSubmit={hanldeSubmit} className="flex flex-col gap-6 md:w-xl">
+          <form
+            onSubmit={hanldeSubmit}
+            className="flex flex-col gap-6 w-2xs sm:w-sm md:w-xl"
+          >
             <div className="flex flex-col gap-1.5">
               <label>Email address</label>
               <input

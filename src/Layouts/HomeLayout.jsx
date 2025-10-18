@@ -25,13 +25,13 @@ const HomeLayout = () => {
       </header>
       <main>
         <MyContainer className="my-3 grid grid-cols-12 gap-6">
-          <aside className="col-span-3">
+          <aside className="col-span-12 lg:col-span-3">
             <LeftAside />
           </aside>
-          <section className="main col-span-6">
+          <section className="main col-span-12 md:col-span-8 lg:col-span-6">
             <Outlet />
           </section>
-          <aside className="col-span-3">
+          <aside className="mt-10 md:mt-0 col-span-12 md:col-span-4 lg:col-span-3">
             <RigheAside />
           </aside>
         </MyContainer>
