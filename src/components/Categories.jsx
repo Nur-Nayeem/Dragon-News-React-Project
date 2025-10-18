@@ -10,7 +10,7 @@ const Categories = () => {
           to={`/category/${category.id}`}
           key={category.id}
           className={
-            "btn border-0 text-accent bg-base-100 hover:bg-base-200 font-semibold"
+            "btn border-0 text-accent bg-base-100 hover:bg-base-200 font-semibold justify-start text-center"
           }
         >
           {category.name}

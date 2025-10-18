@@ -19,5 +19,5 @@
 }
 
 a.active {
-  @apply text-primary;
+  @apply text-primary bg-base-300;
 }
