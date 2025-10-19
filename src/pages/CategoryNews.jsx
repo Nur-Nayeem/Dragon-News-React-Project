@@ -23,7 +23,6 @@ const CategoryNews = () => {
       const filteredCategoryNews = data.filter(
         (news) => news.category_id == id
       );
-      console.log(filteredCategoryNews);
       setCategoryNews(filteredCategoryNews);
       setLoadAnimation(false);
       return;

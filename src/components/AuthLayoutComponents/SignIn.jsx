@@ -10,7 +10,6 @@ const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const location = useLocation();
-  console.log(location);
 
   const navigate = useNavigate();
   const hanldeSubmit = (e) => {
@@ -30,8 +29,7 @@ const SignIn = () => {
       return;
     }
     signInUser(email, password)
-      .then((res) => {
-        console.log(res.user);
+      .then(() => {
         navigate(location.state || "/");
         setLoading(loader);
         toast.success("Successfully Login!");

@@ -35,25 +35,22 @@ const SignUp = () => {
       return;
     }
     createUser(email, password)
-      .then((res) => {
+      .then(() => {
         updateProfile(auth.currentUser, {
           displayName: name,
           photoURL: photoUrl,
         })
           .then(() => {
-            console.log(res.user);
             navigate("/");
             setLoading(loader);
             toast.success("Account Created Successfully!");
           })
           .catch((err) => {
-            console.log(err);
             setError(err.message);
             setLoading(false);
           });
       })
       .catch((err) => {
-        console.log(err);
         setLoading(false);
         setError(err.message);
       });

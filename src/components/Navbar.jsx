@@ -26,8 +26,8 @@ const Navbar = () => {
       <div className="hidden md:block col-span-4 w-full "></div>
       <div className="col-span-6 md:col-span-4 flex justify-start md:justify-center gap-4 text-accent">
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/career">Career</NavLink>
+        <NavLink to="/">About</NavLink>
+        <NavLink to="/">Career</NavLink>
       </div>
       <div className="col-span-6 md:col-span-4 flex justify-end gap-4">
         <img
