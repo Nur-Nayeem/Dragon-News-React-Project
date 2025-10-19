@@ -4,8 +4,7 @@ import { AuthContext } from "../../auth-context/AuthContext";
 import { useNavigate } from "react-router";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/firebase.config";
-// import { createUserWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "../../firebase/firebase.config";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const { createUser, loader } = use(AuthContext);
@@ -18,14 +17,11 @@ const SignUp = () => {
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     const name = e.target.name.value;
-    const photoUrl = e.target.photourl.value;
+    const photoUrl = e.target.photourl.value || "";
     const email = e.target.email.value;
     const password = e.target.password.value;
-    if (!password) {
-      setError("please Enter Password");
-      setLoading(false);
-      return;
-    } else if (!passwordRegex.test(password)) {
+
+    if (!passwordRegex.test(password)) {
       setError(
         "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character."
       );
@@ -42,6 +38,7 @@ const SignUp = () => {
             console.log(res.user);
             navigate("/");
             setLoading(loader);
+            toast.success("Account Created Successfully!");
           })
           .catch((err) => {
             console.log(err);
@@ -53,6 +50,7 @@ const SignUp = () => {
         console.log(err);
         setLoading(false);
         setError(err.message);
+        toast.error(error);
       });
   };
   return (
@@ -73,6 +71,7 @@ const SignUp = () => {
                 className="bg-base-200 p-5"
                 type="text"
                 name="name"
+                required
                 placeholder="Enter your name"
               />
             </div>
@@ -91,6 +90,7 @@ const SignUp = () => {
                 className="bg-base-200 p-5"
                 type="email"
                 name="email"
+                required
                 placeholder="Enter your email address"
               />
             </div>
@@ -100,6 +100,7 @@ const SignUp = () => {
                 className="bg-base-200 p-5"
                 type="password"
                 name="password"
+                required
                 placeholder="Enter your password"
               />
             </div>

@@ -16,12 +16,12 @@ const NewsDetailsLayout = () => {
             <LatestNewsheader />
           </MyContainer>
         </section>
-        <nav>
-          <MyContainer className="my-3">
-            <Navbar />
-          </MyContainer>
-        </nav>
       </header>
+      <nav className="sticky top-0 bg-base-100 z-50 py-1.5">
+        <MyContainer className="my-3">
+          <Navbar />
+        </MyContainer>
+      </nav>
       <main>
         <MyContainer className="my-3 grid grid-cols-12 gap-6">
           <section className="col-span-12 md:col-span-8 lg:col-span-9">

@@ -3,6 +3,7 @@ import { use, useState } from "react";
 import MyContainer from "../MyContainer";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../auth-context/AuthContext";
+import { toast } from "react-toastify";
 
 const SignIn = () => {
   const { signInUser, loader } = use(AuthContext);
@@ -18,11 +19,7 @@ const SignIn = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    if (!password) {
-      setError("please Enter Password");
-      setLoading(false);
-      return;
-    } else if (!passwordRegex.test(password)) {
+    if (!passwordRegex.test(password)) {
       setError(
         "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character."
       );
@@ -34,10 +31,12 @@ const SignIn = () => {
         console.log(res.user);
         navigate("/");
         setLoading(loader);
+        toast.success("Successfully Login!");
       })
       .catch((err) => {
         setLoading(false);
         setError(err.message);
+        toast.error(error);
       });
   };
   return (
@@ -58,6 +57,7 @@ const SignIn = () => {
                 className="bg-base-200 p-5"
                 type="email"
                 name="email"
+                required
                 placeholder="Enter your email address"
               />
             </div>
@@ -67,6 +67,7 @@ const SignIn = () => {
                 className="bg-base-200 p-5"
                 type="password"
                 name="password"
+                required
                 placeholder="Enter your password"
               />
             </div>

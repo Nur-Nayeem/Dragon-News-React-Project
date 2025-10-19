@@ -3,6 +3,8 @@ import { Link, NavLink, useNavigate } from "react-router";
 import userIcon from "../assets/user.png";
 import { AuthContext } from "../auth-context/AuthContext";
 import { PiSignOut } from "react-icons/pi";
+import { toast } from "react-toastify";
+
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
   const navigate = useNavigate();
@@ -12,11 +14,11 @@ const Navbar = () => {
       return;
     }
     signOutUser()
-      .then((res) => {
-        console.log("logput success", res);
+      .then(() => {
+        toast.success("Logout Successfully");
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err.message);
       });
   };
   return (
@@ -30,7 +32,7 @@ const Navbar = () => {
       <div className="col-span-6 md:col-span-4 flex justify-end gap-4">
         <img
           className="hidden md:block w-10 h-10 rounded-full"
-          src={user ? user.photoURL : userIcon}
+          src={user ? (user.photoURL ? user.photoURL : userIcon) : userIcon}
           alt=""
         />
         <button

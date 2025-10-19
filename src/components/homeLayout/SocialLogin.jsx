@@ -2,26 +2,27 @@ import React, { use } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../auth-context/AuthContext";
+import { toast } from "react-toastify";
 
 const SocialLogin = () => {
   const { signInWithGoole, signInWithGithub } = use(AuthContext);
   const googleSignIn = () => {
     signInWithGoole()
-      .then((res) => {
-        console.log(res.user);
+      .then(() => {
+        toast.success("Loged-in Successfully");
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err.message);
       });
   };
 
   const githubSignIn = () => {
     signInWithGithub()
-      .then((res) => {
-        console.log(res.user);
+      .then(() => {
+        toast.success("Loged-in Successfully");
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err.message);
       });
   };
 

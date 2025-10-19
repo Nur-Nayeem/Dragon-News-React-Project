@@ -6,11 +6,10 @@ import Navbar from "../components/Navbar";
 
 const AuthLayout = () => {
   return (
-    <div className="bg-base-200">
+    <div className="bg-base-200 h-screen">
       <header>
-        <Header />
         <nav>
-          <MyContainer className="my-3 ">
+          <MyContainer className="py-3 ">
             <Navbar />
           </MyContainer>
         </nav>
