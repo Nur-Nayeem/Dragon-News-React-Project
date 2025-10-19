@@ -1,13 +1,15 @@
 import React from "react";
-import { Outlet } from "react-router";
+import { Outlet, useNavigation } from "react-router";
 import Header from "../components/Header";
 import LatestNewsheader from "../components/LatestNewsheader";
 import MyContainer from "../components/MyContainer";
 import Navbar from "../components/Navbar";
 import LeftAside from "../components/homeLayout/LeftAside";
 import RigheAside from "../components/homeLayout/RigheAside";
+import Loader from "../components/Loader";
 
 const HomeLayout = () => {
+  const { state } = useNavigation();
   return (
     <div>
       <header>
@@ -29,7 +31,7 @@ const HomeLayout = () => {
             <LeftAside />
           </aside>
           <section className="main col-span-12 md:col-span-8 lg:col-span-6">
-            <Outlet />
+            {state === "loading" ? <Loader /> : <Outlet />}
           </section>
           <aside className="mt-10 md:mt-0 col-span-12 md:col-span-4 lg:col-span-3 sticky top-52 lg:top-15 h-fit py-2.5">
             <RigheAside />

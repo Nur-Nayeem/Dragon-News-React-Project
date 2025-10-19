@@ -19,11 +19,15 @@ const CategoryNews = () => {
       setCategoryNews(filteredCategoryNews);
       setLoadAnimation(false);
       return;
+    } else {
+      const filteredCategoryNews = data.filter(
+        (news) => news.category_id == id
+      );
+      console.log(filteredCategoryNews);
+      setCategoryNews(filteredCategoryNews);
+      setLoadAnimation(false);
+      return;
     }
-    const filteredCategoryNews = data.filter((news) => news.category_id == id);
-    console.log(filteredCategoryNews);
-    setCategoryNews(filteredCategoryNews);
-    setLoadAnimation(false);
   }, [data, id]);
   return (
     <div>

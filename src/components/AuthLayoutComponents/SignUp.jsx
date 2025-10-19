@@ -21,6 +21,12 @@ const SignUp = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
+    if (name.length < 3) {
+      setError("Name must have at least 3 charecter");
+      setLoading(false);
+      return;
+    }
+
     if (!passwordRegex.test(password)) {
       setError(
         "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character."
@@ -42,15 +48,14 @@ const SignUp = () => {
           })
           .catch((err) => {
             console.log(err);
-            setLoading(false);
             setError(err.message);
+            setLoading(false);
           });
       })
       .catch((err) => {
         console.log(err);
         setLoading(false);
         setError(err.message);
-        toast.error(error);
       });
   };
   return (

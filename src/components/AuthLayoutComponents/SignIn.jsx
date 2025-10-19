@@ -1,7 +1,7 @@
 // import React, { use } from "react";
 import { use, useState } from "react";
 import MyContainer from "../MyContainer";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../auth-context/AuthContext";
 import { toast } from "react-toastify";
 
@@ -9,6 +9,9 @@ const SignIn = () => {
   const { signInUser, loader } = use(AuthContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const location = useLocation();
+  console.log(location);
+
   const navigate = useNavigate();
   const hanldeSubmit = (e) => {
     e.preventDefault();
@@ -29,14 +32,13 @@ const SignIn = () => {
     signInUser(email, password)
       .then((res) => {
         console.log(res.user);
-        navigate("/");
+        navigate(location.state || "/");
         setLoading(loader);
         toast.success("Successfully Login!");
       })
       .catch((err) => {
         setLoading(false);
         setError(err.message);
-        toast.error(error);
       });
   };
   return (
